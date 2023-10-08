@@ -9,17 +9,18 @@
 
     <form method="post" action="user">
         <label>Username
-            <input type="text" name="username" class="form-control">
+            <input type="text" name="username" class="form-control" th:value="${saveUsername}">
         </label>
         <label>Email
-            <input type="email" name="email" class="form-control">
+            <input type="email" name="email" class="form-control" th:value="${saveEmail}">
         </label>
         <label>Password
             <input type="password" name="password" class="form-control">
         </label>
         <label>Verify password
-            <input type="password" name="password" class="form-control">
+            <input type="password" name="verify" class="form-control">
         </label>
+        <p th:if="${error}" th:text="${error}"></p>
         <div>
             <input type="submit">
         </div>

@@ -21,9 +21,15 @@ public class UserController {
     public String processAddUserForm(Model model, @ModelAttribute User user, String verify) {
         model.addAttribute("user", user);
 
-        return "user/index";
+        if (!(user.getPassword()).equals(verify)) {
+            model.addAttribute("error", "Passwords do not match");
+            model.addAttribute("saveUsername", user.getUsername());
+            model.addAttribute("saveEmail", user.getEmail());
+            return "user/add";
+        } else {
+            return "user/index";
+
+        }
+
     }
-
-
-
 }
